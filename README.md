@@ -17,6 +17,12 @@ A secure and simple voting system where users can cast votes, and administrators
 - [Contributing](#contributing)
 - [License](#license)
 
+## Technologies Used
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB (with Mongoose)
+- **Authentication**: JWT (JSON Web Token)
+- **Testing/Client**: Postman (for API testing)
+
 ## Overview
 This Voting Application allows users to:
 - View a list of candidates.
@@ -113,20 +119,3 @@ The following environment variables need to be set in a `.env` file for the appl
 
 ### Public Routes
 - **GET /candidate**: Fetch a list of all candidates.
-
-## Technologies Used
-- **Backend**: Node.js, Express.js
-- **Database**: MongoDB (with Mongoose)
-- **Authentication**: JWT (JSON Web Token)
-- **Testing/Client**: Postman (for API testing)
-
-## Contributing
-Contributions are welcome! Please follow these steps to contribute:
-1. Fork the repository.
-2. Create your feature branch: `git checkout -b feature/your-feature-name`.
-3. Commit your changes: `git commit -m 'Add some feature'`.
-4. Push to the branch: `git push origin feature/your-feature-name`.
-5. Open a pull request.
-
-## License
-This project is licensed under the MIT License. See the LICENSE file for details.
