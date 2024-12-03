@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+
 const User = require('./../models/user');
 const {jwtAuthMiddleware, generateToken} = require('./../jwt');
 
@@ -7,7 +8,8 @@ const {jwtAuthMiddleware, generateToken} = require('./../jwt');
 router.post('/signup', async(req, res)=>{
     try{
         const data = req.body //Assuming the request body conatins the User data
-        
+        .then(User =>res.join(User))
+        .catch(err => console.log(err))
         // Check if there is already an admin user
         const adminUser = await User.findOne({ role: 'admin' });
         if (data.role === 'admin' && adminUser) {
@@ -38,6 +40,11 @@ router.post('/signup', async(req, res)=>{
         console.log(JSON.stringify(payload));
         const token = generateToken(payload);
         console.log("Token is : ",token);
+
+        User.create(req.body)
+        .then(user => res.join(user))
+        .catch(err => console.log(err))
+
     }catch(err) {
         console.log(err);
         res.status(500).json({error: 'Internal Server Error'});
